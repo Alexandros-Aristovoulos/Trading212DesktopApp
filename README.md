@@ -6,7 +6,7 @@ of my [Trading212Portfolio](https://github.com/alex999ar/Trading212Portfolio)
 
 ### Image example of program output
 ![](/example_output.png)
-When you hover over a slice of the donut it shows you the stock ticker, the current price and the percentage of your portfolio it occupies
+When you hover over a slice of the donut chart it shows you the stock ticker, the current value of this investment and the percentage of your portfolio it occupies
 
 ### Information
 **This project is designed for accounts with EURO currency**. It converts Usd, GBp, and Nok to euro. You can add more conversions by adding a conversion variable in the
@@ -30,7 +30,7 @@ yahooInfo function. (dont forget to use it after the "convert everything to euro
 
 ### Dependencies
 #### For Electron
--[Npm and Node.js](https://www.npmjs.com/get-npm)
+- [Npm and Node.js](https://www.npmjs.com/get-npm)
 
 #### For Python
 - [Flask](https://flask.palletsprojects.com)
