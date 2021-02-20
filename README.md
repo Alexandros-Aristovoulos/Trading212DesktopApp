@@ -7,7 +7,7 @@ of my [Trading212Portfolio](https://github.com/alex999ar/Trading212Portfolio).
 ### Image example of program output
 ![](/example_output.png)
 When you hover over a slice of the donut chart it shows you the stock ticker, the current value of this investment and the percentage of your portfolio it occupies.
-Click on any any stock name in the legend under the chart to remove or add it back in the chart.
+Click on any any ticker in the legend under the chart to remove or add it back in the chart.
 
 ### Information
 **This project is designed for accounts with EURO currency**. It converts Usd, GBp, and Nok to euro. You can add more conversions by adding a conversion variable in the
