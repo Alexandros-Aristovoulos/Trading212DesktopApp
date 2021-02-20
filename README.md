@@ -2,15 +2,15 @@
 ### Description
 The goal of this project is to get your Trading212 portfolio, calculate your returns and show everything clearly without having to log in to the trading 212 website. 
 This is achieved by getting the order information from a provided csv and searching in yahoo finance for the current prices of the stocks. This is a more interactive version
-of my [Trading212Portfolio](https://github.com/alex999ar/Trading212Portfolio)
+of my [Trading212Portfolio](https://github.com/alex999ar/Trading212Portfolio).
 
 ### Image example of program output
 ![](/example_output.png)
-When you hover over a slice of the donut chart it shows you the stock ticker, the current value of this investment and the percentage of your portfolio it occupies
+When you hover over a slice of the donut chart it shows you the stock ticker, the current value of this investment and the percentage of your portfolio it occupies.
 
 ### Information
 **This project is designed for accounts with EURO currency**. It converts Usd, GBp, and Nok to euro. You can add more conversions by adding a conversion variable in the
-yahooInfo function. (dont forget to use it after the "convert everything to euros if necessary" comment) 
+yahooInfo function of `src\python\stockAndCurrencyData.py`. (Don't forget to use it after the "convert everything to euros if necessary" comment.) 
 
 ### Installation
 * Run the command `npx create-electron-app my-app` to create the skeleton of an electon app using electron forge.
