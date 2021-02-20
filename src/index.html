@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Investments</title>
+
+  <!-- Insert this line above script imports  -->
+  <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+
+  <!-- normal script imports etc  -->
+  <script src="jquery.min.js"></script>
+  <script src="Chart.min.js"></script>
+
+  <!-- Insert this line after script imports -->
+  <script>if (window.module) module = window.module;</script>
+  
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+
+
+<body>
+  <div class="container">
+    <div class="row row-content">
+      <div class="col-12 col-sm-4" style="text-align: left;">
+        <div class="row">
+          <p class="col-12" id="Portfolio">Portfolio</p>
+
+          <p class="col-12" id="currentPortfolioValue">Loading current value...</p>
+
+          <table class="mainTable">
+            <tr>
+              <th class="mainTableTitles">Invested</th>
+              <th class="mainTableTitles">Return</th>
+            </tr>
+            <tr>
+              <td class="mainTableInfo" id="investedPortfolioValue"><strong>Loading invested...</strong></td>
+              <td class="mainTableInfo" id="returnValue"><strong>Loading return...</strong></td>
+            </tr>
+          </table>
+        </div>
+        <div class="row row-content">
+          <div id="stockRows">
+            
+          </div>
+        </div>
+      </div>
+      <canvas class="col-12 col-sm-8" id="chartArea">
+        
+      </canvas>
+
+    </div>
+
+
+  </div>
+
+  <script src="index.js">
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: auto;
+  padding: 2rem;
+  color: white;
+  background-color:#2E313B;
+
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
+
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+.row{
+  margin-bottom: 20px;
+}
+
+#Portfolio{
+  font-size: 1.5em;
+}
+
+#currentPortfolioValue{
+  font-size: 2.0em;
+}
+
+.mainTableTitles{
+  font-size: 1.2em;
+}
+
+.mainTableInfo{
+  font-size: 1.4em;
+}
+
+.mainTable{
+  width: 100%; 
+  max-width: 300px;
+  min-width: 200px;
+}
+
+#stockRows{
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 60vh;
+  padding-right: 1em;
+}
+
+#chartArea{
+  height: 90vh;
+  width: 100%;
+}
+
+.stockTable{
+  margin: auto;
+  min-width: 200px; 
+  max-width: 300px;
+  width: 100%;
+  margin-bottom:20px;
+  border-bottom: 2px solid #494E5C;
+}
+
+
+
+.stockItemTitle{
+  font-size: 1.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.stockItemInfo{
+  font-size: 1.2em;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#stockRows::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  box-shadow:  rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #2E313B;
+}
+
+#stockRows::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #2E313B;
+}
+
+#stockRows::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  box-shadow:  rgba(0,0,0,0.3);
+	background-color: #555;
+}
+
+
