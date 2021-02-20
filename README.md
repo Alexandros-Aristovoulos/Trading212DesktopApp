@@ -6,6 +6,7 @@ of my [Trading212Portfolio](https://github.com/alex999ar/Trading212Portfolio)
 
 ### Image example of program output
 ![](/example_output.png)
+
 When you hover over a slice of the donut it shows you the stock name, the current price and the percentage of your portfolio it occupies
 
 ### Information
