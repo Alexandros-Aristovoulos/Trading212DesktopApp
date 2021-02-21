@@ -10,8 +10,8 @@ When you hover over a slice of the donut chart it shows you the stock ticker, th
 Click on any any ticker in the legend under the chart to remove it or add it back in the chart.
 
 ### Information
-**This project is designed for accounts with EURO currency**. It converts Usd, GBp, and Nok to euro. You can add more conversions by adding a conversion variable in the
-yahooInfo function of `src\python\stockAndCurrencyData.py`. (Don't forget to use it after the "convert everything to euros if necessary" comment.) 
+**This project is designed for accounts with EURO currency**. It converts Usd, GBp, and Nok to euro. If you want to change it to your currency or add more conversions
+follow the [instructions here](https://github.com/alex999ar/Trading212DesktopApp#Change_or_add_currencies)
 
 ### Installation
 * Run the command `npx create-electron-app trading212_desktop_app` to create the skeleton of an electon app using electron forge.
@@ -28,6 +28,40 @@ yahooInfo function of `src\python\stockAndCurrencyData.py`. (Don't forget to use
 
 ### How to create a proper executable
 * Open a terminal and cd to your install location. Run the command `npm run make`
+
+### Change or add currencies
+1. Go to the yahooInfo function of `src\python\stockAndCurrencyData.py` and locate where we get the currency rates
+![](/rate_images/rates1.png)
+
+* Here you can add more currency conversions. For example to get the conversion rate from Swedish Krona to Euro add `sekEuroRate = c.getRate('SEK', 'EUR')`
+* If you want to change the currency from Euro to your currency (for example Usd) you need to change the commands like this:
+
+`euroUsdRate = c.getRate('EUR', 'USD')`
+
+`gbpUsdRate = c.getRate('GBP', 'USD')`
+
+`nokUsdRate = c.getRate('NOK', 'USD')`
+
+2. Locate where we convert everything to euros
+ 
+![](/rate_images/rates2.png)
+
+* To add your currency conversion add another elif statement after the last one. For example to use the `sekEuroRate` which we created in the above example you need to add
+
+`elif currency == "SEK": 
+    curPrice = sekEurRate*curPrice` 
+    
+(use the correct python spacing)
+* To change the currency from Euro to your currency (for example Usd) you need to change the commands like this:
+
+`            if currency == "EUR":
+                curPrice = eurUsdRate*curPrice
+            elif currency == "GBp":
+                curPrice = gbpUsdRate*curPrice*0.01
+            elif currency == "NOK":
+                curPrice = nokUsdRate*curPrice` 
+
+(use the correct python spacing)
 
 ### Dependencies
 #### For Electron
