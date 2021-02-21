@@ -49,9 +49,7 @@ follow the [instructions here](https://github.com/alex999ar/Trading212DesktopApp
 * To add your currency conversion add another elif statement after the last one. For example to use the `sekEuroRate` which we created in the above example you need to add
 
 `elif currency == "SEK": 
-    curPrice = sekEurRate*curPrice` 
-    
-(use the correct python spacing)
+    curPrice = sekEurRate*curPrice` (use the correct python spacing)
 * To change the currency from Euro to your currency (for example Usd) you need to change the commands like this:
 
 `            if currency == "EUR":
@@ -59,9 +57,7 @@ follow the [instructions here](https://github.com/alex999ar/Trading212DesktopApp
             elif currency == "GBp":
                 curPrice = gbpUsdRate*curPrice*0.01
             elif currency == "NOK":
-                curPrice = nokUsdRate*curPrice` 
-
-(use the correct python spacing)
+                curPrice = nokUsdRate*curPrice` (use the correct python spacing)
 
 ### Dependencies
 #### For Electron
