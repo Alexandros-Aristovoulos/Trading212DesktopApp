@@ -14,7 +14,7 @@ Click on any any ticker in the legend under the chart to remove it or add it bac
 yahooInfo function of `src\python\stockAndCurrencyData.py`. (Don't forget to use it after the "convert everything to euros if necessary" comment.) 
 
 ### Installation
-* Run the command `npx create-electron-app my-app` to create the skeleton of an electon app using electron forge.
+* Run the command `npx create-electron-app trading212_desktop_app` to create the skeleton of an electon app using electron forge.
 * Delete the package.json file and src folder in your install location and replace them with my own files.
 (Alternatively you can keep your package.json if you change `"main": "src/index.js"` to `"main": "src/main.js"`)
 * Go to src\python (inside your install location) and replace my orders.csv with your own. (Don't forget to name it the same).
