@@ -4,6 +4,14 @@ var currentPortfolioValue = document.getElementById("currentPortfolioValue")
 var investedPortfolioValue = document.getElementById("investedPortfolioValue")
 var returnValue = document.getElementById("returnValue")
 
+var symbol
+function getCurrencySymbol() {
+    $.get(adress + 'currencySymbol', function (data) {
+        symbol = data;
+    });
+}
+getCurrencySymbol()
+
 var ctx = document.getElementById('chartArea').getContext('2d');
 
 var stockRows = document.getElementById("stockRows")
@@ -38,7 +46,7 @@ var options = {
                 var total = meta.total;
                 var currentValue = dataset.data[tooltipItem.index];
                 var percentage = parseFloat((currentValue / total * 100).toFixed(1));
-                return currentValue + ' (' + percentage + '%)';
+                return symbol + currentValue + ' (' + percentage + '%)';
             },
             title: function (tooltipItem, data) {
                 return data.labels[tooltipItem[0].index];
@@ -52,7 +60,7 @@ var chart = new Chart(ctx);
 var colors = ['rgba(204, 0, 0, 1)', 'rgba(76, 153, 0, 1)', 'rgba(0, 0, 153, 1)', 'rgba(255, 255, 0, 1)', 'rgba(153, 0, 153, 1)',
     'rgba(204, 102, 0, 1)', 'rgba(0, 153, 153, 1)', 'rgba(0, 102, 0, 1)']
 
-function addStockRow(parentEl, stock, price, quantity, profit) {
+function addStockRow(parentEl, stock, price, quantity, profit, symbol) {
     let stockTable = document.createElement("table");
     stockTable.className = "stockTable";
     parentEl.appendChild(stockTable);
@@ -67,7 +75,7 @@ function addStockRow(parentEl, stock, price, quantity, profit) {
 
     let td2 = document.createElement("td");
     td2.className = "d-flex justify-content-end stockItemTitle";
-    td2.innerText = price;
+    td2.innerText = symbol + price;
     tr1.appendChild(td2);
 
     let tr2 = document.createElement("tr");
@@ -80,7 +88,14 @@ function addStockRow(parentEl, stock, price, quantity, profit) {
 
     let td4 = document.createElement("td");
     td4.className = "d-flex justify-content-end stockItemInfo";
-    td4.innerText = profit;
+    td4.innerText = symbol + profit;
+    if(profit > 0){
+        td4.style.color = '#00FF00';
+    }
+    else{
+        td4.style.color = '#FF0000';
+    }
+
     tr2.appendChild(td4);
 }
 
@@ -91,7 +106,7 @@ function initialiseStockRows() {
         let i;
         let newChild = document.createElement("div");
         for (i = 0; i < obj.length; i++) {
-            addStockRow(newChild, "Loading...", "", "", "")
+            addStockRow(newChild, "Loading...", "", "", "", "")
         }
 
         if (stockRows.firstChild) {
@@ -121,7 +136,7 @@ function getPortfolioValue() {
             currentValue += obj[i]["Current Investment Value"];
             profit += obj[i]["Profit"];
 
-            addStockRow(newChild, obj[i]["Stock"], "€" + parseFloat(obj[i]["Current Investment Value"]).toFixed(2), obj[i]["Quantity"], "€" + parseFloat(obj[i]["Profit"]).toFixed(2))
+            addStockRow(newChild, obj[i]["Stock"], parseFloat(obj[i]["Current Investment Value"]).toFixed(2), obj[i]["Quantity"].toFixed(2) + " Shares", parseFloat(obj[i]["Profit"]).toFixed(2), symbol)
 
             data.push(parseFloat(obj[i]["Current Investment Value"]))
             labels.push(String(obj[i]["Stock"]))
@@ -148,8 +163,17 @@ function getPortfolioValue() {
             options: options
         })
 
-        currentPortfolioValue.innerHTML = "€" + currentValue.toFixed(2);
-        returnValue.innerHTML = "€" + profit.toFixed(2);
+        currentPortfolioValue.innerHTML = symbol + currentValue.toFixed(2);
+        returnValue.innerHTML = symbol + profit.toFixed(2);
+        if (profit.toFixed(2) > 0 ){
+            returnValue.style.color = '#00FF00';
+        }
+        else if (profit.toFixed(2) < 0 ){
+            returnValue.style.color = '#FF0000';
+        }
+        else{
+            returnValue.style.color = '#000000';
+        }
     });
 }
 getPortfolioValue()
@@ -164,7 +188,7 @@ function getInvestedPortfolioValue() {
         for (i = 0; i < obj.length; i++) {
             invested = invested + obj[i]["Invested"] - obj[i]["Withdrew"] + obj[i]["Total Fees"];
         }
-        investedPortfolioValue.innerHTML = "€" + invested.toFixed(2);
+        investedPortfolioValue.innerHTML = symbol + invested.toFixed(2);
 
     });
 }
