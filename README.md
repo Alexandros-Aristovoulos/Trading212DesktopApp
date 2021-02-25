@@ -10,8 +10,8 @@ When you hover over a slice of the donut chart it shows you the stock ticker, th
 Click on any any ticker in the legend under the chart to remove it or add it back in the chart.
 
 ### Information
-**This project is designed for accounts with EURO currency**. It converts Usd, GBp, and Nok to euro. If you want to change it to your currency or add more conversions
-follow the [instructions here](https://github.com/alex999ar/Trading212DesktopApp#change-currency)
+**This project is designed for accounts with EURO currency**. It converts everything to Euro. If you want to change it to your currency follow the 
+[instructions here](https://github.com/alex999ar/Trading212DesktopApp#change-currency)
 
 ### Installation
 * Run the command `npx create-electron-app trading212_desktop_app` to create the skeleton of an electon app using electron forge.
